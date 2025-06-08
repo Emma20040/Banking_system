@@ -26,7 +26,7 @@ class Account(models.Model):
         
     def debit(self, amount):
         try:
-            if amoumt<=0:
+            if amount<=0:
                 raise ValueError("input a valid amount to perform this transaction")
             if amount >= self.balance:
                 raise ValueError("insufficint funds")

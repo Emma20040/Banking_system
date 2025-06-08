@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'customer'
+    'customer',
+    'authenticate',
 ]
 
 MIDDLEWARE = [
@@ -108,6 +109,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# custom authentication Backend
+AUTH_USER_MODEL = 'authenticate.CustomUser'
+
+AUTHENTICATION_BACKENDS = [
+    'authenticate.backends.EmailOrUsernameBackend',
+    'django.contrib.auth.backends.ModelBackend',  
+]
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -126,9 +136,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+
 # media files settings
 MEDIA_URL = 'media/'
 MEDIA_ROOT = [os.path.join(BASE_DIR, 'media')]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
