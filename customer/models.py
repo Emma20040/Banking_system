@@ -35,3 +35,8 @@ class Account(models.Model):
             self.save()
         except:
             raise ValueError("Transaction failed")
+
+
+
+# class Profile(models.Model):
+    #     user= models.OneToOneField(CustomUser, on_delete=None)

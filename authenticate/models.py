@@ -17,7 +17,8 @@ class CustomUser(AbstractUser):
         validators=[EmailValidator(message=_("Enter a valid email address"))],
         help_text=_('Required. Your active email address')
         )
-    
+    first_name= models.CharField(max_length=100, unique=False)
+    last_name = models.CharField(max_length=100, unique=False)
     phone_number = models.CharField(
         max_length=15,
         blank=False,
